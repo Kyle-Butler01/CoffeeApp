@@ -1,0 +1,17 @@
+{% extends 'users/(base_login_auth).html' %}
+
+{% block title %}
+Вход
+{% endblock %}
+
+{% block header %}
+Войдите в аккаунт
+{% endblock %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Войти</button>
+</form>
+{% endblock %}

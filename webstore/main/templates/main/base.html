@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}My Site{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Один общий CSS -->
+    <link rel="stylesheet" href="{% static 'main/css/css.css' %}">
+</head>
+<body>
+
+<div class="page fade-in">
+
+    <!-- Burger menu + dropdown -->
+    <div class="menu-wrapper">
+        <div class="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="dropdown">
+            <a href="{% url 'main:home' %}">Home</a>
+            <a href="{% url 'products:productslist' %}">Products</a>
+            <a href="{% url 'main:contacts' %}">Contacts</a>
+            <a href="{% url 'main:support' %}">Support</a>
+            <a href="{% url 'main:cooperation' %}">Cooperation</a>
+        </div>
+    </div>
+
+    <!-- Верхняя панель -->
+    <header class="top-bar">
+        <div class="logo"></div>
+
+        <div class="user-area">
+            {% if user.is_authenticated %}
+                <span class="username">{{ user.username }}</span>
+                <form method="post" action="{% url 'users:logout' %}">
+                    {% csrf_token %}
+                    <button type="submit" >logout</button>
+                </form>
+            {% else %}
+                <a href="{% url 'users:login' %}" class="btn login">Log in</a>
+                <a href="{% url 'users:register' %}" class="btn signup">Sign in</a>
+            {% endif %}
+        </div>
+    </header>
+
+    <!-- Контент страницы -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Футер -->
+    <footer class="footer"></footer>
+
+</div>
+
+</body>
+</html>

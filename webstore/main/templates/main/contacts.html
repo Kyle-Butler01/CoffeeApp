@@ -1,0 +1,58 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Contacts{% endblock %}
+
+{% block content %}
+
+<section class="contacts-section">
+    <div class="contacts-card">
+
+        <!-- Имя и фамилия -->
+        <h1 class="developer-name">
+            <!-- Здесь укажи имя и фамилию разработчика -->
+            Whinston Robert
+        </h1>
+
+        <!-- Контактные данные -->
+        <div class="contact-info">
+
+            <p>
+                <!-- Здесь укажи почту -->
+                <strong>Email:</strong> WhinstonRobert@protonmail.com
+            </p>
+
+            <p>
+                <!-- Здесь укажи телефон -->
+                <strong>Phone:</strong> +7 (977) 474-94-91 
+            </p>
+
+            <p>
+                <!-- Здесь укажи адрес компании -->
+                <strong>Address:</strong> Miami, Bay-Harbor Island, WebDevCorporation.inc
+            </p>
+
+        </div>
+
+        <!-- Описание команды / разработчиков -->
+        <div class="developer-description">
+          
+            <p>
+            Здравствуйте, спасибо за посещение сайта, данный сайт разрaбатывался не коммандой, а одним человеком,
+           данный сайт является собственным проектом для подкрепления навыков разработки сайтов на языке Python 
+           с использованием извесного фреймворка Django, данный сайт не является большим а уж тем более коммерческим 
+           продуктом, прошу вас оценить сайт как есть, и прислать идеи на указанные выше контактные данные, если нашли 
+           ошибку, прошу свяжитесь со мной, большое спасибо! 
+            </p>
+        </div>
+
+        <!-- Кнопка поддержки -->
+        <div class="support-button-wrapper">
+            <a href="#" class="btn signup support-btn">
+                Написать в службу поддержки
+            </a>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

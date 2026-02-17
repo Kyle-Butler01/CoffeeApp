@@ -1,0 +1,13 @@
+{% extends 'users/(base_login_auth).html' %}
+
+{% block title %}
+Регистрация
+{% endblock %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Создать аккаунт</button>
+</form>
+{% endblock %}
