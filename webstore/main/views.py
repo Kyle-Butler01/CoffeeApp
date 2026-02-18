@@ -13,7 +13,3 @@ def contacts_page (request):
 def cooperation_page (request):
     return render (request, 'main/cooperation.html')
 
-
-def support_page (request):
-    return render (request, 'main/support.html')
-

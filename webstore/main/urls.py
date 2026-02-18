@@ -11,7 +11,6 @@ urlpatterns = [
     path('products/', include('products.urls')),
     path('contacts/', views.contacts_page, name='contacts'),
     path('cooperation/', views.cooperation_page, name='cooperation'),
-    path('support/', views.support_page, name='support'),
 ]
 
 
