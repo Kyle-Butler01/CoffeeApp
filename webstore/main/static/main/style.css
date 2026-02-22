@@ -751,3 +751,85 @@ input[type="file"] {
 .btn-submit:hover {
     opacity: 0.85;
 }
+
+/* ===== MOBILE VERSION ===== */
+
+@media (max-width: 768px) {
+
+    .profile-container {
+        margin: 40px auto;
+    }
+
+    .profile-title {
+        font-size: 24px;
+    }
+
+    .profile-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 25px;
+    }
+
+    .profile-info {
+        width: 100%;
+    }
+
+    .info-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+        text-align: left;
+    }
+
+    .profile-actions {
+        flex-direction: column;
+    }
+
+    .action-card {
+        width: 100%;
+    }
+
+    .action-card button {
+        width: 100%;
+    }
+}
+
+/* ===== MOBILE VERSION ===== */
+
+@media (max-width: 768px) {
+
+    .edit-container {
+        margin: 40px auto;
+    }
+
+    .edit-title {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .edit-subtitle {
+        text-align: center;
+    }
+
+    .edit-card {
+        padding: 25px;
+    }
+
+    .edit-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .btn-submit {
+        width: 100%;
+    }
+
+    .btn-back {
+        text-align: center;
+    }
+
+    input[type="file"] {
+        width: 100%;
+    }
+}
