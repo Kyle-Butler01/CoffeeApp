@@ -1,0 +1,71 @@
+{% extends "main/base.html" %}
+{% block content %}
+
+<div class="profile-container">
+    <h1 class="profile-title">Мой профиль</h1>
+    <p class="profile-subtitle">
+        Добро пожаловать, <span>{{ user.username }}</span>
+    </p>
+
+    <div class="profile-card">
+
+        <div class="profile-left">
+            <div class="avatar">
+                <img src="{{ user.profile.avatar.url }}" alt="Avatar">
+            </div>
+            <a href="{% url 'users:edit_profile' %}">Редактировать профиль</a>
+        </div>
+
+        <div class="profile-info">
+            <div class="info-row">
+                <span class="label">Имя пользователя</span>
+                <span class="value highlight">{{ user.username }}</span>
+            </div>
+
+            <div class="info-row">
+                <span class="label">Email</span>
+                <span class="value">{{ user.email }}</span>
+            </div>
+
+            <div class="info-row">
+                <span class="label">Имя</span>
+                <span class="value">{{ user.first_name }}</span>
+            </div>
+
+            <div class="info-row">
+                <span class="label">Фамилия</span>
+                <span class="value">{{ user.last_name }}</span>
+            </div>
+
+            <div class="info-row">
+                <span class="label">Дата регистрации</span>
+                <span class="value">{{ user.date_joined }}</span>
+            </div>
+
+            <div class="info-row">
+                <span class="label">Последний вход</span>
+                <span class="value">{{ user.last_login }}</span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="profile-actions">
+        <a href="#" class="action-card">
+            <h3>Мои заказы</h3>
+            <button>Смотреть</button>
+        </a>
+
+        <a href="#" class="action-card">
+            <h3>Избранное</h3>
+            <button>Перейти</button>
+        </a>
+
+        <a href="#" class="action-card">
+            <h3>Сменить пароль</h3>
+            <button>Обновить</button>
+        </a>
+    </div>
+</div>
+
+{% endblock %}

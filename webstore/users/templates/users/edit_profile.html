@@ -1,0 +1,40 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+
+{% block content %}
+   <div class="edit-container">
+    <h1 class="edit-title">Редактировать профиль</h1>
+    <p class="edit-subtitle">Обновите вашу информацию</p>
+
+    <div class="edit-card">
+
+        <div class="edit-avatar-section">
+            {% if user.profile.avatar %}
+                <img src="{{ user.profile.avatar.url }}" class="edit-avatar">
+            {% else %}
+                <img src="{% static 'images/default-avatar.png' %}" class="edit-avatar">
+            {% endif %}
+        </div>
+
+        <form method="POST" enctype="multipart/form-data" class="edit-form">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label>Новая фотография</label>
+                {{ form.avatar }}
+            </div>
+
+            <!-- В будущем сюда можно добавить другие поля -->
+
+            <div class="edit-buttons">
+                <a href="{% url 'users:profile' %}" class="btn-back">Назад</a>
+                <button type="submit" class="btn-submit">
+                    Редактировать профиль
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>
+{% endblock %}

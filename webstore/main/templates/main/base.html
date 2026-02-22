@@ -35,7 +35,7 @@
 
         <div class="user-area">
             {% if user.is_authenticated %}
-                <span class="username">{{ user.username }}</span>
+                <span class="username"><a href="{% url 'users:profile' %}">{{ user.username }}</a></span>
                 <form method="post" action="{% url 'users:logout' %}">
                     {% csrf_token %}
                     <button type="submit" class="btn logout">logout</button>
