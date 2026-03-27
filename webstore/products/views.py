@@ -7,6 +7,7 @@ def ProductsView (request):
     products = Products.objects.all()
     return render (request, 'products/products_list.html', {'products':products})
 
+
 @login_required
 def ProductInfo (request, id):
     product = get_object_or_404(Products, id=id)

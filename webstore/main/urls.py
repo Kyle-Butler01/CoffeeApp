@@ -8,9 +8,9 @@ app_name = 'main'
 
 urlpatterns = [
     path('', views.home_page, name='home'),
-    path('products/', include('products.urls')),
     path('contacts/', views.contacts_page, name='contacts'),
     path('cooperation/', views.cooperation_page, name='cooperation'),
+    path('api/', include('api.urls')),
 ]
 
 
