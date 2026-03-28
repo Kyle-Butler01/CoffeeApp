@@ -3,9 +3,6 @@ from .serializers import ProductSerializer
 from products.models import Products
 
 
-#def APIinfo(request):
-#    return render(request, 'api/api_info.html')
-
 
 class ProductListViewAPI(generics.ListAPIView):
     queryset = Products.objects.all()

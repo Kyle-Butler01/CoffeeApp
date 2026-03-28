@@ -9,9 +9,3 @@ urlpatterns = [
     path('', views.ProductsView, name='productslist' ),
     path('product/<int:id>/', views.ProductInfo, name='productinfo'), 
 ]
-
-if settings.DEBUG: 
-    urlpatterns += static(
-        settings.MEDIA_URL,
-        document_root=settings.MEDIA_ROOT
-    )

@@ -134,13 +134,21 @@ cloudinary.config(
     api_secret=os.environ.get("CLOUDINARY_API_SECRET"),
 )
 
+# CompressedManifestStaticFilesStorage требует `collectstatic` (файл staticfiles.json).
+# Без него {% static %} падает с Missing staticfiles manifest entry → 500 на всех страницах с CSS.
+_staticfiles_manifest = os.path.join(BASE_DIR, "staticfiles", "staticfiles.json")
+_staticfiles_backend = (
+    "whitenoise.storage.CompressedManifestStaticFilesStorage"
+    if os.path.exists(_staticfiles_manifest)
+    else "whitenoise.storage.CompressedStaticFilesStorage"
+)
 
 STORAGES = {
     "default": {
         "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
     },
     "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+        "BACKEND": _staticfiles_backend,
     },
 }
 
@@ -150,6 +158,10 @@ STORAGES = {
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# При DEBUG=False WhiteNoise по умолчанию не использует finders и отдаёт только из STATIC_ROOT.
+# Без `collectstatic` каталог пуст — /static/... даёт 404 (кажется, что «пропала вся статика»).
+WHITENOISE_USE_FINDERS = True
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
