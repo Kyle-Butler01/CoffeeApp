@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'users.apps.UsersConfig',
     'api.apps.ApiConfig',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [

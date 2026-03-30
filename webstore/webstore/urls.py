@@ -16,10 +16,31 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
+from rest_framework import permissions
+
+
+schema_view = get_schema_view(
+    openapi.Info(
+        title="API Documentation",
+        default_version='v1',
+        description="API documentation for the project",
+    ),
+)
+
 
 urlpatterns = [
+    # admin panel
     path('admin/', admin.site.urls),
+    # main app
     path('', include('main.urls')),
+    # users app
     path('users/', include('users.urls')),
+    # products app
     path('products/', include('products.urls')),
+    # api app
+    path('api/', include('api.urls')),
+    # swagger
+    path('api/docs/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
 ]
