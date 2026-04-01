@@ -8,10 +8,20 @@ Login
 Войдите в аккаунт
 {% endblock %}
 
+{% block subtitle %}
+Рады видеть вас снова. Введите данные для входа.
+{% endblock %}
+
 {% block content %}
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Войти</button>
 </form>
+{% endblock %}
+
+{% block auth_links %}
+<div class="auth-link">
+    Нет аккаунта? <a href="{% url 'users:register' %}">Зарегистрироваться</a>
+</div>
 {% endblock %}

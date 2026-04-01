@@ -3,7 +3,91 @@
 {% block title %}Welcome{% endblock %}
 
 {% block content %}
-<div class="center-text">
-    <em>приветствуем на нашем сайте кофейни!</em>
-</div>
+<header class="top-bar">
+    <div class="logo"></div>
+
+    <div class="user-area">
+        {% if user.is_authenticated %}
+            <span class="username"><a href="{% url 'users:profile' %}">{{ user.username }}</a></span>
+            <form method="post" action="{% url 'users:logout' %}">
+                {% csrf_token %}
+                <button type="submit" class="btn logout">logout</button>
+            </form>
+        {% else %}
+            <a href="{% url 'users:login' %}" class="btn login">Log in</a>
+            <a href="{% url 'users:register' %}" class="btn signup">Sign in</a>
+        {% endif %}
+    </div>
+</header>
+<section class="coffee-bg-page">
+    <section class="home-hero">
+        <p class="home-tag">Specialty coffee house</p>
+        <h1>Добро пожаловать в нашу кофейню</h1>
+        <p class="home-subtitle">
+            Свежая обжарка, уютная атмосфера и напитки, к которым хочется возвращаться.
+        </p>
+        <div class="home-hero-actions">
+            <a href="{% url 'products:productslist' %}" class="btn signup">Смотреть меню</a>
+            <a href="{% url 'main:cooperation' %}" class="btn login">Сотрудничество</a>
+        </div>
+    </section>
+
+    <section class="home-grid">
+        <article class="home-card">
+            <h2>Сегодня в кофейне</h2>
+            <p>
+                Начните утро с эспрессо, сделайте паузу с мягким капучино или выберите
+                авторский напиток с карамельными и пряными нотами.
+            </p>
+            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=80" alt="Бариста готовит кофе" loading="lazy">
+        </article>
+
+        <article class="home-card">
+            <h2>Почему нас выбирают</h2>
+            <p>
+                Только качественное зерно, аккуратная подача и пространство, где комфортно
+                работать, встречаться и отдыхать.
+            </p>
+            <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=1200&q=80" alt="Интерьер кофейни" loading="lazy">
+        </article>
+
+        <article class="home-card">
+            <h2>Десерты к напиткам</h2>
+            <p>
+                Круассаны, чизкейки и фирменные сладости идеально дополняют кофе.
+                Мы следим за свежестью каждый день.
+            </p>
+            <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=1200&q=80" alt="Кофе и десерт" loading="lazy">
+        </article>
+    </section>
+
+    <section class="home-grid">
+        <article class="home-card">
+            <h2>Утренние предложения</h2>
+            <p>
+                До полудня доступны комбо-наборы: фильтр-кофе + выпечка, американо + круассан
+                и сезонный раф с десертом по специальной цене.
+            </p>
+            <img src="https://images.unsplash.com/photo-1464306076886-da185f6a9d05?auto=format&fit=crop&w=1200&q=80" alt="Утренний кофе в кофейне" loading="lazy">
+        </article>
+
+        <article class="home-card">
+            <h2>Наша философия вкуса</h2>
+            <p>
+                Мы балансируем кислотность, сладость и плотность вкуса, чтобы каждый напиток
+                оставался мягким, насыщенным и узнаваемым.
+            </p>
+            <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=1200&q=80" alt="Кофейные зерна и чашка кофе" loading="lazy">
+        </article>
+
+        <article class="home-card">
+            <h2>Пространство для встреч</h2>
+            <p>
+                Уютные столики, спокойный свет и приятная музыка - всё, чтобы комфортно
+                работать, общаться с друзьями и отдыхать.
+            </p>
+            <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=1200&q=80" alt="Люди в уютной кофейне" loading="lazy">
+        </article>
+    </section>
+</section>
 {% endblock %}

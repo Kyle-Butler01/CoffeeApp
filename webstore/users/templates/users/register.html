@@ -8,10 +8,20 @@ Register
 Регистрация
 {% endblock %}
 
+{% block subtitle %}
+Создайте аккаунт и получите доступ к профилю и заказам.
+{% endblock %}
+
 {% block content %}
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Создать аккаунт</button>
 </form>
+{% endblock %}
+
+{% block auth_links %}
+<div class="auth-link">
+    Уже зарегистрированы? <a href="{% url 'users:login' %}">Войти</a>
+</div>
 {% endblock %}

@@ -6,31 +6,36 @@
 
 
 {% block content %}
+<section class="products-page">
+    <header class="top-bar products-header">
+        <div class="logo">Products</div>
+    </header>
 
-<header class="top-bar">
-    <div class="logo">Products</div>
+    <div class="products-intro">
+        <h1>Меню кофейни</h1>
+        <p>Выбирайте напитки и десерты: от классики до авторских сочетаний.</p>
+    </div>
 
-</header>
-
-<main class="products-container">
-    {% for product in products %}
-     <a href="{% url 'products:productinfo' product.id %}" class="product-card">
-        <div class="product-card" >
-            <div class="product-image">
-                {% if product.image %}
-                    <center><img src="{{ product.image.url }}" alt="{{ product.name }}"></center>
-                {% else %}
-                    <center><span>Нет изображения</span></center>
-                {% endif %}
+    <main class="products-container">
+        {% for product in products %}
+         <a href="{% url 'products:productinfo' product.id %}" class="product-card">
+            <div class="product-card" >
+                <div class="product-image">
+                    {% if product.image %}
+                        <center><img src="{{ product.image.url }}" alt="{{ product.name }}"></center>
+                    {% else %}
+                        <center><span>Нет изображения</span></center>
+                    {% endif %}
+                </div>
+                <div class="product-info">
+                    <h3>{{ product.name }}</h3>
+                    <h3>{{ product.price }} $</h3>
+                    <h3>{{ product.category }}</h3>
+                </div>
             </div>
-            <div class="product-info">
-                <h3>{{ product.name }}</h3>
-                <h3>{{ product.price }} $</h3>
-                <h3>{{ product.category }}</h3>
-            </div>
-        </div>
-     </a>
-    {% endfor %}
-</main>
+         </a>
+        {% endfor %}
+    </main>
+</section>
 
 {% endblock %}

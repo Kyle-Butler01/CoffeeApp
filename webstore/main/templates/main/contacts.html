@@ -3,56 +3,54 @@
 {% block title %}Contacts{% endblock %}
 
 {% block content %}
+<section class="coffee-bg-page">
+    <section class="contacts-section">
+        <div class="contacts-card">
+            <h1 class="developer-name">Whinston Robert</h1>
+            <p class="contacts-intro">Свяжитесь с нами по любому вопросу: от заказов до идей по развитию проекта.</p>
 
-<section class="contacts-section">
-    <div class="contacts-card">
+            <div class="contact-info">
+                <p>
+                    <strong>Email:</strong> WhinstonRobert@protonmail.com
+                </p>
+                <p>
+                    <strong>Phone:</strong> +7 (977) 474-94-91 
+                </p>
+                <p>
+                    <strong>Address:</strong> Miami, Bay-Harbor Island, WebDevCorporation.inc
+                </p>
+            </div>
 
-        <!-- Имя и фамилия -->
-        <h1 class="developer-name">
-            <!-- Здесь укажи имя и фамилию разработчика -->
-            Whinston Robert
-        </h1>
+            <div class="developer-description">
+                <p>
+                    Спасибо, что заглянули к нам. Этот проект создан с любовью к кофе и веб-разработке:
+                    здесь мы собираем идеи, улучшаем сервис и делаем интерфейс более уютным.
+                    Если у вас есть предложения по меню, доставке, бонусной системе или дизайну,
+                    обязательно напишите нам по контактам выше.
+                </p>
+                <p>
+                    Мы особенно ценим обратную связь о скорости работы сайта, удобстве страниц с товарами
+                    и качестве описаний напитков. Любое ваше сообщение помогает сделать проект лучше.
+                </p>
+            </div>
 
-        <!-- Контактные данные -->
-        <div class="contact-info">
+            <div class="developer-description contacts-photo-block">
+                <h2>Мы на связи каждый день</h2>
+                <p>
+                    Поддержка отвечает на вопросы по заказам, сотрудничеству и техническим ошибкам.
+                    Обычно мы возвращаемся с ответом в течение одного рабочего дня.
+                </p>
+                <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=1200&q=80" alt="Чашка кофе и ноутбук на столе" loading="lazy">
+            </div>
 
-            <p>
-                <!-- Здесь укажи почту -->
-                <strong>Email:</strong> WhinstonRobert@protonmail.com
-            </p>
-
-            <p>
-                <!-- Здесь укажи телефон -->
-                <strong>Phone:</strong> +7 (977) 474-94-91 
-            </p>
-
-            <p>
-                <!-- Здесь укажи адрес компании -->
-                <strong>Address:</strong> Miami, Bay-Harbor Island, WebDevCorporation.inc
-            </p>
+            <div class="support-button-wrapper">
+                <a href="https://mail.proton.me/" class="btn signup support-btn">
+                    Написать в службу поддержки
+                </a>
+            </div>
 
         </div>
-
-        <!-- Описание команды / разработчиков -->
-        <div class="developer-description">
-          
-            <p>
-            Здравствуйте, спасибо за посещение сайта, данный сайт разрaбатывался не коммандой, а одним человеком,
-           данный сайт является собственным проектом для подкрепления навыков разработки сайтов на языке Python 
-           с использованием извесного фреймворка Django, данный сайт не является большим а уж тем более коммерческим 
-           продуктом, прошу вас оценить сайт как есть, и прислать идеи на указанные выше контактные данные, если нашли 
-           ошибку, прошу свяжитесь со мной, большое спасибо! 
-            </p>
-        </div>
-
-        <!-- Кнопка поддержки -->
-        <div class="support-button-wrapper">
-            <a href="https://mail.proton.me/" class="btn signup support-btn">
-                Написать в службу поддержки
-            </a>
-        </div>
-
-    </div>
+    </section>
 </section>
 
 {% endblock %}
